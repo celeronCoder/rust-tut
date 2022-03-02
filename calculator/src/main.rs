@@ -10,9 +10,9 @@ fn main() {
     println!("-------------------------");
 
     loop {
-        let mut num1 = String::new();
-        let mut num2 = String::new();
-        let mut operator = String::new();
+        let mut num1: String = String::new();
+        let mut num2: String = String::new();
+        let mut operator: String = String::new();
 
         print!("What is the first number?: ");
         read(&mut num1);
@@ -25,7 +25,7 @@ fn main() {
         let num2: f32 = num2.trim().parse().unwrap();
         let operator: char = operator.trim().chars().next().unwrap(); // only takes the first char in the string
 
-        let operators = String::from("+-*/");
+        let operators: String = String::from("+-*/");
 
         if !operators.contains(operator) {
             println!("unknown operator");
