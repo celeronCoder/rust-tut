@@ -1,0 +1,2 @@
+language = "rust"
+run = "echo 'REPL STARTED'"
