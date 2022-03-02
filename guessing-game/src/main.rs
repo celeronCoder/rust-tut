@@ -14,7 +14,10 @@ fn main() {
         stdin().read_line(&mut guess).expect("Failed to read line.");
 
         // Rust allows us to shadow the previous value of guess with a new one.
-        let guess: u32 = guess.trim().parse().expect("Please type a number only");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You guessed: {}", guess);
 
@@ -23,7 +26,7 @@ fn main() {
             Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
                 println!("You win!");
-                return;
+                break;
             },
         }
     }
