@@ -1,19 +1,19 @@
+use super::schema::users;
+use super::schema::users::dsl::users as all_users;
 use diesel;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
-use super::schema::users;
-use super::schema::users::dsl::users as all_users;
 
-#[derive(Serialize, Queryable)] 
+#[derive(Serialize, Queryable)]
 pub struct User {
     pub id: i32,
     pub username: String,
     pub password: String,
-    pub first_name: String
+    pub first_name: String,
 }
 
 // decode request data
-#[derive(Deserialize)] 
+#[derive(Deserialize)]
 pub struct UserData {
     pub username: String,
 }
@@ -32,7 +32,7 @@ impl User {
         all_users
             .order(users::id.desc())
             .load::<User>(conn)
-            .expect("error!");
+            .expect("error!")
     }
 
     pub fn insert_user(user: NewUser, conn: &PgConnection) -> bool {
@@ -46,6 +46,6 @@ impl User {
         all_users
             .filter(users::username.eq(user.username))
             .load::<User>(conn)
-            .expect("error!");
+            .expect("error!")
     }
 }
