@@ -6,3 +6,6 @@ Example:
 ```rust
 println!("Hello, World");
 ```
+
+**panic**
+Throwing an error at runtime is called panicking.
