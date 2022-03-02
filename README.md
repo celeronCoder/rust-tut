@@ -4,5 +4,5 @@ A macro is like a function that only accepts an input that matches a specific pa
 Example:
 
 ```rust
-println!('Hello, World');
+println!("Hello, World");
 ```
